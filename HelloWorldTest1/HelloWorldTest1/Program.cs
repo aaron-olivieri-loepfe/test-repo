@@ -9,7 +9,7 @@ namespace Test
             Console.WriteLine("Hello world! Write something below: ");
             string msg = Console.ReadLine();
             Console.WriteLine("--------------------------------------");
-            Console.WriteLine("Your input: " + msg);
+            Console.WriteLine("Your input:  " + msg);
         }
     }
 }
