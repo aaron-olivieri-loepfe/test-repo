@@ -1,57 +1,27 @@
 ﻿using System;
 namespace Calculator
 {
-    class Calculator
-    {
-        public static double DoOperation(double num1, double num2, string op)
-        {
-            switch (op)
-            {
-                case "a":
-                    result = num1 + num2;
-                    break;
-                case "s":
-                    result = num1 - num2;
-                    break;
-                case "m":
-                    result = num1 * num2;
-                    break;
-                case "d":
-                    if (num2 != 0)
-                    {
-                        result = num1 / num2;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return result;
-        }
-    }
-    class Program
-    {
-        static void Main(string[] args)
-        {
-                string numInput1 = "";
-                string numInput2 = "";
- 
-                Console.Write("Type a number, and then press Enter: ");
-                numInput1 = Console.ReadLine();
+	public class Program
+	{
+		public static int addition(int a, int b)
+		{
+			return (a + b);
+		}
 
-                Console.Write("Type another number, and then press Enter: ");
-                numInput2 = Console.ReadLine();
+		public static void Main()
+		{
+			int a, b;
+			int sum;
 
-                // Ask the user to choose an operator.
-                Console.WriteLine("Choose an operator from the following list:");
-                Console.WriteLine("\ta - Add");
-                Console.WriteLine("\ts - Subtract");
-                Console.WriteLine("\tm - Multiply");
-                Console.WriteLine("\td - Divide");
-                Console.Write("Your option? ");
+			Console.Write("Enter first number: ");
+			a = Convert.ToInt32(Console.ReadLine());
 
-                string op = Console.ReadLine();
-            }
-            return;
-        }
-    }
+			Console.Write("Enter second number: ");
+			b = Convert.ToInt32(Console.ReadLine());
+
+			sum = addition(a, b);
+
+			Console.WriteLine("Sum is: " + sum);
+		}
+	}
 }
