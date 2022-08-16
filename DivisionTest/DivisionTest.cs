@@ -6,10 +6,10 @@ using Calculator;
 namespace CalculationTests
 {
     [TestClass]
-    public class MultiplicationTest
+    public class DivisionTest
     {
         [TestMethod]
-        public void TestMethod3()
+        public void TestMethod4()
         {
 
             //Arrange

@@ -23,9 +23,7 @@ namespace Calculator
 			sum2 = calculator.Multiplication(a, b);
 			sum3 = calculator.Division(a, b);
 
-
-
-			Console.WriteLine("-------------------------------");
+			Console.WriteLine("------------------------------");
 			Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
 			Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
 		}
