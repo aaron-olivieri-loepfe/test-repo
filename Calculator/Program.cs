@@ -25,9 +25,8 @@ namespace Calculator
 
 
 
-			Console.WriteLine("-------------------------------");
+
 			Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
-			Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
 		}
 	}
 }
