@@ -5,12 +5,11 @@ using Calculator;
 namespace CalculationTests
 {
     [TestClass]
-    public class AdditionTest
+    public class OperationTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestAddition()
         {
-
             //Arrange
             Operation ClassOperation = new Operation();
             int expectedResult = 5;
@@ -21,15 +20,10 @@ namespace CalculationTests
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
-    }
 
-    [TestClass]
-    public class SubtractionTest
-    {
         [TestMethod]
-        public void TestMethod2()
+        public void TestSubtraction()
         {
-
             //Arrange
             Operation ClassOperation = new Operation();
             int expectedResult = 2;
@@ -40,35 +34,24 @@ namespace CalculationTests
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
-    }
 
-
-        [TestClass]
-    public class MultiplicationTest
-    {
         [TestMethod]
-        public void TestMethod3()
+        public void TestMultiplication()
         {
-
             //Arrange
             Operation ClassOperation = new Operation();
             int expectedResult = 20;
 
             //Act
-            int result = ClassOperation.Multiplication(4, 5);
+            int result = ClassOperation.Multiplication(5, 4);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
-    }
 
-    [TestClass]
-    public class DivisionTest
-    {
         [TestMethod]
-        public void TestMethod4()
+        public void TestDivision()
         {
-
             //Arrange
             Operation ClassOperation = new Operation();
             int expectedResult = 3;
@@ -81,5 +64,10 @@ namespace CalculationTests
         }
     }
 }
+
+   
+
+
+
 
 
