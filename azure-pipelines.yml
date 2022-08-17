@@ -16,10 +16,6 @@ variables:
   project: '**\Calculator.Calculator.csproj'
 
 steps:
-- task: DotNetCoreCLI@2
-  name: 'OperationsUnitTest'
-  displayName: 'Run tests'
+- task: VSBuild@1
   inputs:
-    command: 'test'
-    projects: '$(solution)'
-    arguments: '--configuration $(BuildConfiguration)'
+    solution: '**\*.sln'
