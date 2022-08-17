@@ -9,14 +9,11 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-variables:
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-  projects: '$(Parameters.projects)'
-
 steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
+    command: build
     projects: '**/*.csproj'
-    arguments: '--configuration $(BuildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)'
+
