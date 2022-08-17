@@ -6,26 +6,40 @@ namespace Calculator
 
 		public static void Main()
 		{
-			int a, b;
-			int sum;
-			int sum1;
-			int sum2;
-			int sum3;
+			bool endApp = false;
+			Console.WriteLine("Console Calculator in C#\r");
+			Console.WriteLine("------------------------");
 
-			Console.Write("Enter first number: ");
-			a = Convert.ToInt32(Console.ReadLine());
+			while (!endApp)
+			{
+				int a, b;
+				int sum;
+				int sum1;
+				int sum2;
+				int sum3;
 
-			Console.Write("Enter second number: ");
-			b = Convert.ToInt32(Console.ReadLine());
-			var calculator = new Operation();
-			sum = calculator.Addition(a, b);
-			sum1 = calculator.Subtraction(a, b);
-			sum2 = calculator.Multiplication(a, b);
-			sum3 = calculator.Division(a, b);
+				Console.Write("Enter first number: ");
+				a = Convert.ToInt32(Console.ReadLine());
 
-			Console.WriteLine("------------------------------");
-			Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
-			Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
+				Console.Write("Enter second number: ");
+				b = Convert.ToInt32(Console.ReadLine());
+				var calculator = new Operation();
+				sum = calculator.Addition(a, b);
+				sum1 = calculator.Subtraction(a, b);
+				sum2 = calculator.Multiplication(a, b);
+				sum3 = calculator.Division(a, b);
+
+				Console.WriteLine("\nResults: \n");
+				Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
+				Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
+				Console.WriteLine("------------------------\n");
+
+				// Wait for the user to respond before closing.
+				Console.Write("Press 'n' and Enter to close the app, or press Enter to continue: ");
+				if (Console.ReadLine() == "n") endApp = true;
+
+				Console.WriteLine("\n"); // Friendly linespacing.
+			}
 		}
 	}
 }
