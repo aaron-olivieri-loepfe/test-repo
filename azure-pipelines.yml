@@ -12,8 +12,8 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  solution: '**/*.sln'
-  project: '**/*.csproj'
+  solution: '**\Calculator.Calculator.sln'
+  project: '**\Calculator.Calculator.csproj'
 
 steps:
 - task: DotNetCoreCLI@2
