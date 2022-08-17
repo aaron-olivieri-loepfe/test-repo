@@ -16,6 +16,8 @@ variables:
   project: '**\Calculator.Calculator.csproj'
 
 steps:
-- task: VSBuild@1
+- task: DotNetCoreCLI@2
   inputs:
-    solution: '**\*.sln'
+    command: 'build'
+    projects: '**/*.snl'
+    arguments: '''--configuration $(BuildConfiguration)'''
