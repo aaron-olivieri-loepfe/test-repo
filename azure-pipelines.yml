@@ -17,7 +17,9 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
+  name: 'OperationsUnitTest'
+  displayName: 'Run tests'
   inputs:
-    command: 'build'
-    projects: '**/*.snl'
-    arguments: '''--configuration $(BuildConfiguration)'''
+    command: 'test'
+    projects: '$(solution)'
+    arguments: '--configuration $(BuildConfiguration)'
