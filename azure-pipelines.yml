@@ -12,7 +12,7 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  solution: '**\Calculator.sln'
+  projects: '$(Parameters.projects)'
 
 steps:
 - task: DotNetCoreCLI@2
@@ -20,5 +20,5 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: 'test'
-    projects: '$(solution)'
+    projects: '**/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
