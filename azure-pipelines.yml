@@ -24,4 +24,4 @@ steps:
   inputs:
     command: 'test'
     projects: '$(solution)'
-    arguments: --configuration $(BuildConfiguration)
+    arguments: '--configuration $(BuildConfiguration)'
