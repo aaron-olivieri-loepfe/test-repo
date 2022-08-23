@@ -26,7 +26,7 @@ namespace Calculator
 				var calculator = new Operation();
 				sum = calculator.Addition(a, b);
 				sum1 = calculator.Subtraction(a, b);
-				sum2 = calculator.Multiplication(a, b);
+				sum25 = calculator.Multiplication(a, b);
 				sum3 = calculator.Division(a, b);
 
 				Console.WriteLine("\nResults: \n");
