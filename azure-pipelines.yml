@@ -32,7 +32,7 @@ jobs:
       projects: '$(solution)'
       arguments: '--configuration $(BuildConfiguration)'    
 
-- job: Deploy
+- job: Release
   steps:
   - task: PublishBuildArtifacts@1
     inputs:
