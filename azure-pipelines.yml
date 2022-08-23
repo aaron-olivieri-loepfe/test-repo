@@ -6,26 +6,41 @@ trigger:
     include:
     - development
 
-pool:
-  vmImage: 'windows-2022'
+jobs:
+- job: Build
+  pool:
+    vmImage: 'windows-2022'
 
-variables:
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-  solution: '**/*.sln'
-  project: '**/*.csproj'
+  variables:
+    buildPlatform: 'Any CPU'
+    buildConfiguration: 'Release'
+    solution: '**/*.sln'
+    project: '**/*.csproj'
 
-steps:
-- task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    command: build
-    projects: '$(project)'
+  steps:
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: build
+      projects: '$(project)'
 
-- task: DotNetCoreCLI@2
-  name: 'OperationsUnitTest'
-  displayName: 'Run tests'
-  inputs:
-    command: 'test'
-    projects: '$(solution)'
-    arguments: '--configuration $(BuildConfiguration)'    
+  - task: DotNetCoreCLI@2
+    name: 'OperationsUnitTest'
+    displayName: 'Run tests'
+    inputs:
+      command: 'test'
+      projects: '$(solution)'
+      arguments: '--configuration $(BuildConfiguration)'    
+
+- job: Deploy
+  # track deployments on the environment
+- deployment: DeployWeb
+  displayName: deploy Calculator App
+  # creates an environment if it doesn't exist
+  environment: 'calculator-dev'
+  strategy:
+    # default deployment strategy, more coming...
+    runOnce:
+      deploy:
+        steps:
+        - script: echo my first deployment
