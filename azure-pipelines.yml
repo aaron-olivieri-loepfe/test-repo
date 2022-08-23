@@ -34,5 +34,5 @@ jobs:
 
 - job: Deploy
   steps:
-  - publish: '$(System.DefaultWorkingDirectory)/bin/*.exe'
+  - publish: '$(System.DefaultWorkingDirectory)**/*.exe'
     artifact: CalcApp
