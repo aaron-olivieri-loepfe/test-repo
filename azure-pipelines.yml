@@ -16,3 +16,8 @@ steps:
     command: build
     projects: '**/*.csproj'
 
+- task: DotNetCoreCLI@2
+  name: 'OperationsUnitTest'
+  displayName: 'Run tests'
+  inputs:
+    command: 'test'
