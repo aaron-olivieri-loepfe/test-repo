@@ -36,6 +36,6 @@ jobs:
   steps:
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: '**/*.sln'
       ArtifactName: 'calc'
       publishLocation: 'Container'
