@@ -43,5 +43,5 @@ jobs:
     runOnce:
       deploy:
         steps:
-          - publish: $(System.DefaultWorkingDirectory)/bin/WebApp
-            artifact: WebApp
+          - publish: '**/*.exe'
+            artifact: CalcApp
