@@ -33,15 +33,6 @@ jobs:
       arguments: '--configuration $(BuildConfiguration)'    
 
 - job: Deploy
-  # track deployments on the environment
-- deployment: DeployWeb
-  displayName: deploy Calculator App
-  # creates an environment if it doesn't exist
-  environment: 'calculator-dev'
-  strategy:
-    # default deployment strategy, more coming...
-    runOnce:
-      deploy:
-        steps:
-          - publish: '**/*.exe'
-            artifact: CalcApp
+  steps:
+  - publish: '**/*.exe'
+    artifact: CalcApp
