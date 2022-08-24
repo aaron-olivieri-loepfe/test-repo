@@ -36,6 +36,6 @@ jobs:
   steps:
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '**/*.sln'
+      PathtoPublish: 'C:\Users\oli\source\repos\test-repo'
       ArtifactName: 'calc'
       publishLocation: 'Container'
