@@ -4,9 +4,7 @@
 trigger:
   branches:
     include:
-    - development
-    - b/*
-    - publishArtifacts
+    -*
 
 jobs:
 - job: Build
