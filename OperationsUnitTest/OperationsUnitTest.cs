@@ -11,7 +11,7 @@ namespace CalculationTests
         public void TestAddition()
         {
             //Arrange
-            Operation ClassOperation = new Operation();
+            MathLibrary ClassOperation = new MathLibrary();
             int expectedResult = 5;
 
             //Act
@@ -25,7 +25,7 @@ namespace CalculationTests
         public void TestSubtraction()
         {
             //Arrange
-            Operation ClassOperation = new Operation();
+            MathLibrary ClassOperation = new MathLibrary();
             int expectedResult = 2;
 
             //Act
@@ -39,7 +39,7 @@ namespace CalculationTests
         public void TestMultiplication()
         {
             //Arrange
-            Operation ClassOperation = new Operation();
+            MathLibrary ClassOperation = new MathLibrary();
             int expectedResult = 20;
 
             //Act
@@ -53,7 +53,7 @@ namespace CalculationTests
         public void TestDivision()
         {
             //Arrange
-            Operation ClassOperation = new Operation();
+            MathLibrary ClassOperation = new MathLibrary();
             int expectedResult = 3;
 
             //Act
