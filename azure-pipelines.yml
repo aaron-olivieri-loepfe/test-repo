@@ -38,4 +38,4 @@ jobs:
     displayName: 'Publish pipeline artifact'
     inputs:
       artifactName: 'calc'
-      targetPath: 'C:/Users/oli/source/repos/test-repo/Calculator/bin/Debug/net6.0'
+      targetPath: '$(System.DefaultWorkingDirectory)'
