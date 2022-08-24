@@ -36,6 +36,7 @@ jobs:
   steps:
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: $(Build.ArtifactStagingDirectory)
+      PathtoPublish: 'C:\Users\oli\source\repos\test-repo\Calculator\bin\Debug\net6.0'
       ArtifactName: 'calc'
 
+##[warning]Directory '/home/vsts/work/1/a' is empty. Nothing will be added to build artifact 'calc'.
