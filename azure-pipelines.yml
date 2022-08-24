@@ -39,4 +39,3 @@ jobs:
     inputs:
       artifactName: 'calc'
       targetPath: $(System.DefaultWorkingDirectory)/Calculator/bin/
-      dependsOn: Build
