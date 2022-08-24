@@ -32,10 +32,10 @@ jobs:
       projects: '$(solution)'
       arguments: '--configuration $(BuildConfiguration)'    
 
-- job: Release
+- job: Publish
   steps:
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: 'C:\Users\oli\source\repos\test-repo'
+      PathtoPublish: $(Build.ArtifactStagingDirectory)
       ArtifactName: 'calc'
-      publishLocation: 'Container'
+
