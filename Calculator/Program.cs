@@ -8,7 +8,7 @@ namespace Calculator
 		{
 			bool endApp = false;
 			Console.WriteLine("Console Calculator in C#\r");
-			Console.WriteLine("-------------------------");
+			Console.WriteLine("------------------------");
 
 			while (!endApp)
 			{
@@ -32,7 +32,7 @@ namespace Calculator
 				Console.WriteLine("\nResults: \n");
 				Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
 				Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
-				Console.WriteLine("-------------------------\n");
+				Console.WriteLine("------------------------\n");
 
 				// Wait for the user to respond before closing.
 				Console.Write("Press 'n' and Enter to close the app, or press Enter to continue: ");
