@@ -4,7 +4,7 @@
 trigger:
   branches:
     include:
-    - development
+    - '*'
 
 jobs:
 - job: Build
@@ -32,10 +32,8 @@ jobs:
       projects: '$(solution)'
       arguments: '--configuration $(BuildConfiguration)'    
 
-- job: Publish
-  steps:
-  - task: PublishBuildArtifacts@1
+  - task: PublishPipelineArtifact@0
+    displayName: 'Publish pipeline artifact'
     inputs:
-      PathtoPublish: $(Build.ArtifactStagingDirectory)
-      ArtifactName: 'calc'
-
+      artifactName: 'calc'
+      targetPath: $(System.DefaultWorkingDirectory)/Calculator/bin/
