@@ -32,8 +32,6 @@ jobs:
       projects: '$(solution)'
       arguments: '--configuration $(BuildConfiguration)'    
 
-- job: Publish
-  steps:
   - task: PublishPipelineArtifact@0
     displayName: 'Publish pipeline artifact'
     inputs:
