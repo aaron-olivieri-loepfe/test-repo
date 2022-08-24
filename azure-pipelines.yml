@@ -38,4 +38,4 @@ jobs:
     displayName: 'Publish pipeline artifact'
     inputs:
       artifactName: 'calc'
-      targetPath: '**/bin/*'
+      targetPath: $(System.DefaultWorkingDirectory)/Calculator/
