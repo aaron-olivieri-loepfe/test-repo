@@ -6,6 +6,7 @@ trigger:
     include:
     - development
     - b/*
+    - publishArtifacts
 
 jobs:
 - job: Build
