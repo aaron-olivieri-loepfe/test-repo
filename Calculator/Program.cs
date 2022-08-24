@@ -23,7 +23,7 @@ namespace Calculator
 
 				Console.Write("Enter second number: ");
 				b = Convert.ToInt32(Console.ReadLine());
-				var calculator = new MathLibrary();
+				var calculator = new Operation();
 				sum = calculator.Addition(a, b);
 				sum1 = calculator.Subtraction(a, b);
 				sum2 = calculator.Multiplication(a, b);
