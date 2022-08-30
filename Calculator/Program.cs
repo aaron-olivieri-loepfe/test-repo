@@ -43,7 +43,11 @@ namespace Calculator
 				Console.WriteLine("\n");
 
 				//Serilog 
-				Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+				Log.Logger = new LoggerConfiguration()
+					.WriteTo.Console()
+					.WriteTo.File("log.txt",
+						outputTemplate: "{Timestamp:dd-MM-yyyy HH:mm:ss} {Message:lj}{NewLine}{Exception}")
+					.CreateLogger();
 				Log.Information("This is my first log!");
 				Log.CloseAndFlush();
 			}
