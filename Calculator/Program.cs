@@ -1,4 +1,6 @@
 ﻿using System;
+using Serilog;
+
 namespace Calculator
 {
 	public class Program
@@ -38,7 +40,16 @@ namespace Calculator
 				Console.Write("Press 'n' and Enter to close the app, or press Enter to continue: ");
 				if (Console.ReadLine() == "n") endApp = true;
 
-				Console.WriteLine("\n"); // Friendly linespacing.
+				Console.WriteLine("\n");
+
+				//Serilog 
+				Log.Logger = new LoggerConfiguration()
+					.WriteTo.Console()
+					.WriteTo.File("log.txt",
+						outputTemplate: "{Timestamp:dd-MM-yyyy HH:mm:ss} {Message:lj}{NewLine}{Exception}")
+					.CreateLogger();
+				Log.Information("This is my first log!");
+				Log.CloseAndFlush();
 			}
 		}
 	}
