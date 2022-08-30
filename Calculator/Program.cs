@@ -8,7 +8,7 @@ namespace Calculator
 		{
 			bool endApp = false;
 			Console.WriteLine("Console Calculator in C#\r");
-			Console.WriteLine("-------------------------");
+			Console.WriteLine("------------------------");
 
 			while (!endApp)
 			{
@@ -23,7 +23,7 @@ namespace Calculator
 
 				Console.Write("Enter second number: ");
 				b = Convert.ToInt32(Console.ReadLine());
-				var calculator = new Operation();
+				var calculator = new MathLibrary();
 				sum = calculator.Addition(a, b);
 				sum1 = calculator.Subtraction(a, b);
 				sum2 = calculator.Multiplication(a, b);
@@ -32,7 +32,7 @@ namespace Calculator
 				Console.WriteLine("\nResults: \n");
 				Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
 				Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
-				Console.WriteLine("-------------------------\n");
+				Console.WriteLine("------------------------\n");
 
 				// Wait for the user to respond before closing.
 				Console.Write("Press 'n' and Enter to close the app, or press Enter to continue: ");
