@@ -8,100 +8,102 @@ namespace Calculator
 {
 	public class Program
 	{
-		public interface ICommand
+		public static void Main()
 		{
-			void Execute();
-		}
-
-		[Verb("add", HelpText = "Adds two numbers together")]
-		public class AddCommand : ICommand
-		{
-			double sum = 0;
-
-			[Option('a', "add", Required = true, HelpText = "Addition")]
-			public int Num1 { get; set; }
-            public AddCommand(double num1, double num2)
-            {
-				sum = num1 + num2;
-            }
-
-			public void Execute()
-			{
-				Console.WriteLine($"Your added number is: {sum}");
-			}
-		}
-
-		[Verb("sub", HelpText = "Subtracts a number from the other")]
-		public class SubCommand : ICommand
-		{
-			double sum = 0;
-
-			[Option('s', "sub", Required = true, HelpText = "Subtraction")]
-			public int Num1 { get; set; }
-			public SubCommand(double num1, double num2)
-			{
-				sum = num1 - num2;
-			}
-
-			public void Execute()
-			{
-				Console.WriteLine($"Your subtracted number is: {sum}");
-			}
-		}
-
-		public static void Main(string[] args)
-		{
-
-            Parser.Default.ParseArguments<AddCommand, SubCommand>(args)
-			.WithParsed<ICommand>(t => t.Execute());
-
-
-
-			/*
 			bool endApp = false;
-			Console.WriteLine("Console Calculator in C#\r");
-			Console.WriteLine("------------------------");
 
 			while (!endApp)
 			{
-				int num1, num2;
-				int sum;
-				int sum1;
-				int sum2;
-				int sum3;
+				var args = Console.ReadLine().Split();
+				// (1) default options
+				var result = Parser.Default.ParseArguments<Options>(args);
+				// or (2) build and configure instance
+				//var parser = new Parser(with => with.HelpWriter=Console.Out);	
 
-				Console.Write("Enter first number: ");
-				a = Convert.ToInt32(Console.ReadLine());
+				result.WithParsed(options =>
+				{
+					string a = "add";
+					string s = "sub";
+					string d = "div";
+					string m = "mul";
+					string x = "end";
 
-				Console.Write("Enter second number: ");
-				b = Convert.ToInt32(Console.ReadLine());
-			
-				var calculator = new MathLibrary();
-				sum = calculator.Addition(a, b);
-				sum1 = calculator.Subtraction(a, b);
-				sum2 = calculator.Multiplication(a, b);
-				sum3 = calculator.Division(a, b);
+					if (!options.Operation.Contains(x))
+					{
+						if (options.Operation.Contains(a))
+						{
+							double sum = options.Num1 + options.Num2;
+							Console.WriteLine($"Addition: {options.Num1} + {options.Num2} = {sum}\n");
 
-				Console.WriteLine("\nResults: \n");
-				Console.WriteLine("Addition= " + sum + ", Subtraction= " + sum1);
-				Console.WriteLine("Multiplication= " + sum2 + ", Division= " + sum3);
-				Console.WriteLine("------------------------\n");
+						}
 
-				// Wait for the user to respond before closing.
-				Console.Write("Press 'n' and Enter to close the app, or press Enter to continue: ");
-				if (Console.ReadLine() == "n") endApp = true;
+						if (options.Operation.Contains(s))
+						{
+							double sum = options.Num1 - options.Num2;
+							Console.WriteLine($"Subtraction: {options.Num1} - {options.Num2} = {sum}\n");
+						}
 
-				Console.WriteLine("\n");
-				*/
+						if (options.Operation.Contains(d))
+						{
+							double sum = options.Num1 / options.Num2;
+							Console.WriteLine($"Division: {options.Num1} / {options.Num2} = {sum}\n");
+						}
 
-		//Serilog 
-		Log.Logger = new LoggerConfiguration()
-				.WriteTo.Console()
-				.WriteTo.File("log.txt",
-					outputTemplate: "{Timestamp:dd-MM-yyyy HH:mm:ss} {Message:lj}{NewLine}{Exception}")
-				.CreateLogger();
-			Log.Information("This is my first log!");
+						if (options.Operation.Contains(m))
+						{
+							double sum = options.Num1 * options.Num2;
+							Console.WriteLine($"Multiplication: {options.Num1} * {options.Num2} = {sum}\n");
+						}
+					}
+					else
+					{
+						Console.WriteLine("The program will end now.");
+						System.Environment.Exit(333);
+					}
+				}
+				).WithNotParsed(errs => Console.WriteLine("Failed with errors:\n{0}",
+					String.Join("\n", errs)));
+
+			//Serilog 
+			Log.Logger = new LoggerConfiguration()
+						.WriteTo.Console()
+						.WriteTo.File("log.txt",
+							outputTemplate: "This log was created on {Timestamp:dd-MM-yyyy, HH:mm:ss} {Message:lj}{NewLine}{Exception}")
+						.CreateLogger();
+			Log.Information("");
 			Log.CloseAndFlush();
+			}
+		}
+
+
+
+
+		// Befehle nicht als String, sondern als befehel auswerten und validieren (z.b. "du willst Addition")
+		// nachher evtl auch noch Sqr Root einfügen, Kreisdurchmesser o.ä.
+		// Copyright und ähnliche generic felder vom CommandLineParser entfernen / deaktivieren
+		class Options
+		{
+			[Value(0, Max = 1)]
+			public IEnumerable<string> Operation
+			{
+				get;
+				set;
+			}
+
+			[Value(1)]
+			public double Num1
+			{
+				get;
+				set;
+			}
+
+			[Value(2)]
+			public double Num2
+			{
+				get;
+				set;
+			}
+
 		}
 	}
 }
