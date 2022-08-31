@@ -81,23 +81,36 @@ namespace Calculator
 		// Befehle nicht als String, sondern als befehel auswerten und validieren (z.b. "du willst Addition")
 		// nachher evtl auch noch Sqr Root einfügen, Kreisdurchmesser o.ä.
 		// Copyright und ähnliche generic felder vom CommandLineParser entfernen / deaktivieren
+		//For possible implementation make commands nullable (if one is not used, or more than 3, it will still work)
 		class Options
 		{
 			[Value(0, Max = 1)]
-			public IEnumerable<string> Operation
+			public IEnumerable<string>? Operation
 			{
 				get;
 				set;
 			}
 
-			[Value(1)]
-			public double Num1
+			[Verb("add", HelpText = "Add two numbers together")]
+			class AddOptions
+			{ //normal options here
+			}
+
+			[Value(1, Max = 1)]
+			public IEnumerable<string>? Addition
 			{
 				get;
 				set;
 			}
 
 			[Value(2)]
+			public double Num1
+			{
+				get;
+				set;
+			}
+
+			[Value(3)]
 			public double Num2
 			{
 				get;
