@@ -2,7 +2,7 @@
 using Serilog;
 using CommandLine;
 
-//C:\Users\oli\source\repos\test-repo\Calculator\bin\Debug\net6.0\Calculator.exe
+//in CMD eingeben: C:\Users\oli\source\repos\test-repo\Calculator\bin\Debug\net6.0\Calculator.exe
 
 namespace Calculator
 {
@@ -53,8 +53,9 @@ namespace Calculator
 		{
 
             Parser.Default.ParseArguments<AddCommand, SubCommand>(args)
-			.WithParsed<ICommand>(t => t.Execute());
-
+			.WithParsed<ICommand>(a => a.Execute())
+			.WithParsed<ICommand>(s => s.Execute());
+			
 
 
 			/*
@@ -94,8 +95,8 @@ namespace Calculator
 				Console.WriteLine("\n");
 				*/
 
-		//Serilog 
-		Log.Logger = new LoggerConfiguration()
+			//Serilog 
+			Log.Logger = new LoggerConfiguration()
 				.WriteTo.Console()
 				.WriteTo.File("log.txt",
 					outputTemplate: "{Timestamp:dd-MM-yyyy HH:mm:ss} {Message:lj}{NewLine}{Exception}")
