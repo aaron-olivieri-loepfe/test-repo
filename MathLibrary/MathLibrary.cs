@@ -1,26 +1,37 @@
 ﻿using System;
+
 namespace Calculator
 {
 	public class MathLibrary
 	{
-		public int Addition(int a, int b)
+		public double Addition(double num1, double num2)
 		{
-			return (a + b);
+			return (num1 + num2);
 		}
 
-		public int Subtraction(int a, int b)
+		public double Subtraction(double num1, double num2)
 		{
-			return (a - b);
+			return (num1 - num2);
 		}
 
-		public int Multiplication(int a, int b)
+		public double Multiplication(double num1, double num2)
 		{
-			return (a * b);
+			return (num1 * num2);
 		}
 
-		public int Division(int a, int b)
+		public double Division(double num1, double num2)
 		{
-			return (a / b);
+			return (num1 / num2);
+		}
+
+		public double SquareRoot(double num1)
+		{
+			return (Math.Sqrt(num1));
+		}
+
+		public double Perimeter(double num1)
+		{
+			return (2 * Math.PI * num1);
 		}
 	}
 }

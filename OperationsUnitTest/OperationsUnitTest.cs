@@ -12,10 +12,10 @@ namespace CalculationTests
         {
             //Arrange
             MathLibrary ClassOperation = new MathLibrary();
-            int expectedResult = 5;
+            double expectedResult = 5;
 
             //Act
-            int result = ClassOperation.Addition(2, 3);
+            double result = ClassOperation.Addition(2, 3);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
