@@ -82,20 +82,13 @@ namespace CalculationTests
         {
             //Arrange
             MathLibrary ClassOperation = new MathLibrary();
-            double expectedResult = 31.41592653589793;
+            double expectedResult = 31.41;
 
             //Act
             double result = ClassOperation.Perimeter(5);
 
             //Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, result, 0.01);
         }
     }
 }
-
-   
-
-
-
-
-
