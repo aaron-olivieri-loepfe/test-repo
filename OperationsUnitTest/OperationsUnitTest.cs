@@ -12,10 +12,10 @@ namespace CalculationTests
         {
             //Arrange
             MathLibrary ClassOperation = new MathLibrary();
-            int expectedResult = 5;
+            double expectedResult = 5;
 
             //Act
-            int result = ClassOperation.Addition(2, 3);
+            double result = ClassOperation.Addition(2, 3);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -26,10 +26,10 @@ namespace CalculationTests
         {
             //Arrange
             MathLibrary ClassOperation = new MathLibrary();
-            int expectedResult = 2;
+            double expectedResult = 2;
 
             //Act
-            int result = ClassOperation.Subtraction(9, 7);
+            double result = ClassOperation.Subtraction(9, 7);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -40,10 +40,10 @@ namespace CalculationTests
         {
             //Arrange
             MathLibrary ClassOperation = new MathLibrary();
-            int expectedResult = 20;
+            double expectedResult = 20;
 
             //Act
-            int result = ClassOperation.Multiplication(5, 4);
+            double result = ClassOperation.Multiplication(5, 4);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -54,20 +54,41 @@ namespace CalculationTests
         {
             //Arrange
             MathLibrary ClassOperation = new MathLibrary();
-            int expectedResult = 3;
+            double expectedResult = 3;
 
             //Act
-            int result = ClassOperation.Division(27, 9);
+            double result = ClassOperation.Division(27, 9);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
+
+        [TestMethod]
+        public void TestSquareRoot()
+        {
+            //Arrange
+            MathLibrary ClassOperation = new MathLibrary();
+            double expectedResult = 9;
+
+            //Act
+            double result = ClassOperation.SquareRoot(81);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [TestMethod]
+        public void TestPerimeter()
+        {
+            //Arrange
+            MathLibrary ClassOperation = new MathLibrary();
+            double expectedResult = 31.41;
+
+            //Act
+            double result = ClassOperation.Perimeter(5);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result, 0.01);
+        }
     }
 }
-
-   
-
-
-
-
-

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationsUnitTest", "..\OperationsUnitTest\OperationsUnitTest.csproj", "{C03F7ED3-6197-4BBD-84E1-41CFE255ABBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary", "..\MathLibrary\MathLibrary.csproj", "{C65ACEDC-D8CA-4E86-8B54-EC8074C3025F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLibrary", "..\MathLibrary\MathLibrary.csproj", "{C65ACEDC-D8CA-4E86-8B54-EC8074C3025F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
